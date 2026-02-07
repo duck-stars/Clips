@@ -1,69 +1,46 @@
-<app-alert 
-    [visibility]="alertVisibility()"
-    [color]="alertColor()">
-    {{alertMessage()}}
-</app-alert>
-
-<!-- Register Form -->
-<form class="flex flex-col gap-2" [formGroup]="form" (ngSubmit)="submitForm()">
-
-    <!-- Name -->
-    <label class="mt-2">Name</label>
-    <app-input 
-        [control]="form.controls.name"
+<form class="flex flex-col gap-1 text-md text-white">
+    <!-- Name-->
+    <label class="font-bold mt-5">Name:</label>
+    <input
+        type="text"
         placeholder="Enter Name"
-        [name]="inputConfig.name">
-    </app-input>
+        class="border rounded-sm p-2"
+    >
 
-    <!-- Email -->
-    <label class="mt-2">Email</label>
-    <app-input
-        [control]="form.controls.email"
-        type="email"
+    <!-- Email-->
+    <label class="font-bold mt-5">Email:</label>
+    <input
+        type="text"
         placeholder="Enter Email"
-        [name]="inputConfig.email">
-    </app-input>
+        class="border rounded-sm p-2"
+    >
 
-    <!-- Age -->
-    <label class="mt-2">Age</label>
-    <app-input
-        [control]="form.controls.age"
-        type="number"
-        placeholder="Enter Age"
-        [name]="inputConfig.age">
-    </app-input>
-
+    <!-- Phone Number-->
+    <label class="font-bold mt-5">Phone Number:</label>
+    <input
+        type="text"
+        placeholder="Enter Phone Number"
+        class="border rounded-sm p-2"
+    >
     <!-- Password -->
-    <label class="mt-2">Password</label>
-    <app-input
-        [control]="form.controls.password"
+    <label class="font-bold mt-5">Password:</label>
+    <input
         type="password"
         placeholder="Enter Password"
-        [name]="inputConfig.password">
-    </app-input>
+        class="border rounded-sm p-2"
+    >
 
     <!-- Confirm Password -->
-    <label class="mt-2">Confirm Password</label>
-    <app-input
-        [control]="form.controls.confirmPassword"
+    <label class="font-bold mt-5">Confirm Password:</label>
+    <input
         type="password"
-        placeholder="Enter Password"
-        [name]="inputConfig.default">
-    </app-input>
+        placeholder="Confirm Password"
+        class="border rounded-sm p-2"
+    >
 
-    <!-- Phone Number -->
-    <label class="mt-2">Phone Number</label>
-    <app-input
-        [control]="form.controls.phoneNumber"
-        placeholder="09"
-        [phoneNumberValidation]="true"
-        [name]="inputConfig.phoneNumber">
-    </app-input>
-
-    <button 
-        class="rounded-sm cursor-pointer bg-indigo-400 p-2 mt-2 font-bold"
-        [disabled]="form.invalid"
-        [ngClass]="{'opacity-50': form.invalid}">
-        Submit
+    <!-- Submit Button -->
+    <button
+        class="bg-indigo-400 rounded-md p-2 font-bold cursor-pointer mt-2"
+        >Submit
     </button>
 </form>
