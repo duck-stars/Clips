@@ -1,0 +1,52 @@
+<label class="font-bold text-white text-md" [hidden]="hideLabel()"> {{name()}}: </label>
+<input 
+    class="border rounded-sm p-2 my-1 w-full text-white text-md"
+    [formControl]="control()"
+    [type]="this.type()"
+    [placeholder]="this.placeholder()"
+    [mask] = "mask()"
+    [dropSpecialCharacters]="true"
+>
+
+@if (this.control().touched && this.control().dirty) {
+    @if (this.control().hasError('required')) {
+        <p class="text-red-400">
+            {{this.name()}} is required.
+        </p>
+    }
+
+    @if (this.fixedLength()) {
+        @if (this.control().hasError('minlength') || this.control().hasError('maxlength')) {
+            <p class="text-red-400">
+                {{this.name()}} should be exactly {{this.fixedLength()}} characters.
+            </p>
+        }
+    }
+    @else {
+        @if (this.control().hasError('minlength')) {
+            <p class="text-red-400">
+                {{this.name()}} must be at least
+                {{this.control().getError('minlength').requiredLength}}
+                characters.
+            </p>
+        }
+        @if (this.control().hasError('maxlength')) {
+            <p class="text-red-400">
+                {{this.name()}} can't be more than
+                {{this.control().getError('maxlength').requiredLength}}
+                characters.
+            </p>
+        }
+    }
+
+    @if (this.control().hasError('pattern')) {
+        <p class="text-red-400 whitespace-pre-line">
+            {{this.patternError()}}
+        </p>
+    }
+    @if (this.control().hasError('email')) {
+        <p class="text-red-400">
+            Email is not valid.
+        </p>
+    }
+}
