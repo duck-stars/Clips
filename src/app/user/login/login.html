@@ -1,10 +1,10 @@
-<form class="flex flex-col gap-1 text-md text-white">
+<form class="flex flex-col gap-1 text-md text-white" (submit)="onSubmit($event)">
     <!-- Email-->
     <label class="font-bold mt-5">Email:</label>
     <input
-        type="text"
-        placeholder="Enter Email"
+        placeholder="name@example.com"
         class="border rounded-sm p-2"
+        [formField]="loginForm.email"
     >
     <!-- Password -->
     <label class="font-bold mt-5">Password:</label>
@@ -12,11 +12,14 @@
         type="password"
         placeholder="Enter Password"
         class="border rounded-sm p-2"
+        [formField]="loginForm.password"
     >
 
     <!-- Login Button -->
     <button
-        class="bg-indigo-400 rounded-md p-2 font-bold mt-2 cursor-pointer"
+        class="bg-indigo-400 rounded-md p-2 mt-2 cursor-pointer disabled:opacity-50
+            font-bold text-white"
+        [disabled]="loginForm().invalid()"
         >Login
     </button>
 </form>
