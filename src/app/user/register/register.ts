@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Input } from '../../shared/input/input';
-
+import { Alert } from '../../shared/alert/alert';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule, Input],
+  imports: [ReactiveFormsModule, Input, Alert],
   templateUrl: './register.html',
   styleUrl: './register.css'
 })
@@ -25,6 +25,8 @@ export class Register {
     confirmPassword: new FormControl('', [Validators.required]),
   });
 
+  showAlert = signal(false);
+
   readonly passwordRules = `
         Password must contain:
         • At least 8 characters
@@ -33,6 +35,7 @@ export class Register {
         • At least one number`;
 
   submitForm() {
-    console.log("Form is submitted!!!");
+    console.log("User is Registered!!!");
+    this.showAlert.set(true);
   };
 }

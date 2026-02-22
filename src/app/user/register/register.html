@@ -2,6 +2,12 @@
     (ngSubmit)="submitForm()"
     [formGroup]="registerForm"
     >
+    @if (showAlert()) {
+        <app-alert color="blue">
+            Please wait... Your Account is being created.
+        </app-alert>
+    }
+
     <!-- Name-->
     <app-input
         [control]="registerForm.controls.name"
