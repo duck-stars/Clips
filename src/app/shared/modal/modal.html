@@ -4,5 +4,20 @@
     class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
          rounded-xl p-4 bg-secondary w-full max-w-xl z-50"
 >
+<div (click)="$event.stopPropagation()">
+    <!-- Header -->
+    <div class="flex justify-between pb-3">
+        <!-- Title -->
+        <p class="text-white text-2xl italic font-bold">Your Account:</p>
+
+        <!-- Close Button -->
+        <span
+            class="cursor-pointer text-white text-4xl" (click)="modal.toggle(id())"
+            >&#215;
+        </span>
+    </div>
+    
+    <!-- Main Content -->
     <ng-content></ng-content>
+</div>
 </dialog>
