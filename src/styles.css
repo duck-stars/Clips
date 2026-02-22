@@ -8,6 +8,8 @@
   font-display: swap;
 }
 
+@source inline('bg-{red,green,blue}-400');
+
 body {
   background-color: #161d31;
 }
