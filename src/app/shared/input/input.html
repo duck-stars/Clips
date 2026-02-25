@@ -38,6 +38,19 @@
             </p>
         }
     }
+    
+        @if (this.control().hasError('min')) {
+            <p class="text-red-400">
+                {{this.name()}} can't be lower than
+                {{this.control().getError('min').min}}. 
+            </p>
+        }
+        @if (this.control().hasError('max')) {
+            <p class="text-red-400">
+                {{this.name()}} can't be higher than
+                {{this.control().getError('max').max}}.
+            </p>
+        }
 
     @if (this.control().hasError('pattern')) {
         <p class="text-red-400 whitespace-pre-line">
