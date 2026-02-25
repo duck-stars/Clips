@@ -18,10 +18,8 @@ export class TabsContainer implements AfterContentInit {
   selectTab(tab: Tab, e?: Event) {
     this.tabs().forEach(tab => tab.active.set(false));
     tab.active.set(true);
-
     e?.preventDefault();
   }
-
 
   styleTab(tab: Tab) {
     const activeTabStyle = 'bg-indigo-800';
